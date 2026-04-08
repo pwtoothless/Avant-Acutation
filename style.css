@@ -1,11 +1,15 @@
 /* --- CSS Variables & Reset --- */
 :root {
-    --bg-color: #0a0b10;
-    --surface-color: #14151f;
-    --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
-    --accent-color: #00d2ff;
-    --accent-hover: #00a8cc;
+    /* Base colors built around the brand palette */
+    --bg-color: #0f0505; /* Near-black with a faint warm/red undertone */
+    --surface-color: #1a0a0a; /* Slightly lighter surface for cards */
+    --text-primary: #FFFFFF; /* Accent White */
+    --text-secondary: #d1c5c5; /* Muted white for readability */
+    
+    /* Brand Colors */
+    --brand-red: #800000;
+    --brand-yellow: #ffac0a;
+    
     --transition: all 0.3s ease;
 }
 
@@ -35,7 +39,7 @@ nav {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(10, 11, 16, 0.9);
+    background: rgba(15, 5, 5, 0.9);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: var(--transition);
@@ -43,7 +47,7 @@ nav {
 
 nav.scrolled {
     padding: 1rem 5%;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
 }
 
 .logo {
@@ -69,29 +73,33 @@ nav.scrolled {
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: var(--brand-yellow);
 }
 
 /* --- Buttons --- */
 .btn-primary {
-    background: var(--accent-color);
-    color: var(--bg-color) !important;
+    background: var(--brand-red);
+    color: var(--text-primary) !important;
     padding: 0.6rem 1.5rem;
     border-radius: 30px;
     font-weight: 800 !important;
+    transition: var(--transition);
+    border: 1px solid transparent;
 }
 
 .btn-primary:hover {
-    background: var(--accent-hover);
+    background: var(--brand-yellow);
+    color: #000000 !important; /* Black text on yellow for high contrast */
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 172, 10, 0.3);
 }
 
 .btn-secondary {
     display: inline-block;
     background: transparent;
-    color: var(--accent-color);
+    color: var(--brand-yellow);
     padding: 0.8rem 2rem;
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--brand-yellow);
     border-radius: 30px;
     font-weight: 600;
     text-decoration: none;
@@ -100,8 +108,9 @@ nav.scrolled {
 }
 
 .btn-secondary:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
+    background: var(--brand-yellow);
+    color: #000000;
+    transform: translateY(-2px);
 }
 
 /* --- Hero Section --- */
@@ -112,14 +121,14 @@ nav.scrolled {
     justify-content: center;
     text-align: center;
     padding: 0 5%;
-    background: radial-gradient(circle at center, #1a1c29 0%, var(--bg-color) 100%);
+    background: radial-gradient(circle at center, #240b0b 0%, var(--bg-color) 100%);
 }
 
 .hero h1 {
     font-size: clamp(3rem, 5vw, 5rem);
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, #fff, var(--accent-color));
+    background: linear-gradient(90deg, var(--text-primary), var(--brand-yellow));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -165,24 +174,27 @@ nav.scrolled {
     background: var(--surface-color);
     padding: 2.5rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(128, 0, 0, 0.3); /* Subtle red border */
     transition: var(--transition);
+    border-top: 3px solid var(--brand-red); /* Solid red accent line */
 }
 
 .card:hover {
     transform: translateY(-10px);
-    border-color: rgba(0, 210, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.05);
+    border-color: var(--brand-yellow);
+    box-shadow: 0 10px 30px rgba(255, 172, 10, 0.1);
 }
 
 .card .icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    color: var(--brand-yellow); /* If using text-based emojis/icons */
 }
 
 .card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .card p {
@@ -191,8 +203,10 @@ nav.scrolled {
 
 /* --- Mission Section --- */
 .dark-bg {
-    background-color: var(--surface-color);
+    background-color: #120606;
     text-align: center;
+    border-top: 1px solid rgba(128, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(128, 0, 0, 0.2);
 }
 
 .content-wrapper {
