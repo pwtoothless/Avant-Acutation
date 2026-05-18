@@ -130,6 +130,7 @@ nav.scrolled {
     margin-bottom: 1rem;
     background: linear-gradient(90deg, var(--text-primary), var(--brand-yellow));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -163,7 +164,7 @@ nav.scrolled {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
