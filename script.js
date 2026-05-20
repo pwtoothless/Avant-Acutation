@@ -30,4 +30,74 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Add event listener for scrolling
     window.addEventListener("scroll", revealOnScroll);
+
+    const zoomButtons = document.querySelectorAll(".zoom-button");
+
+    zoomButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            const componentPart = e.target.dataset.componentPart;
+            const componentId = e.target.parentNode.dataset.componentId;
+
+            const zoomContent = document.getElementById(`${componentId}-zoom-content`);
+            const zoomButton = e.target;
+
+            if (!zoomButton.classList.contains("active")) {
+                // Zoom-in the content
+                zoomButton.classList.add("active");
+                zoomContent.classList.remove("hidden");
+
+                // Add event listener to close on click outside
+                document.addEventListener("click", (event) => {
+                    if (!event.target.closest(".zoom-content")) {
+                        closeZoomContent(zoomContent, zoomButton);
+                    }
+                });
+            } else {
+                closeZoomContent(zoomContent, zoomButton);
+            }
+
+            // Close the zoom content when clicking on another button
+            document.querySelectorAll(".zoom-button").forEach((otherButton) => {
+                if (otherButton !== e.target && otherButton.classList.contains("active")) {
+                    closeZoomContent(document.getElementById(`${componentId}-zoom-content`), otherButton);
+                }
+            });
+        });
+    });
+
+    function closeZoomContent(zoomContent, button) {
+        button.classList.remove("active");
+        zoomContent.classList.add("hidden");
+
+        // Remove event listener
+        document.removeEventListener("click", (event) => {
+            if (!event.target.closest(".zoom-content")) {
+                closeZoomContent(zoomContent, button);
+            }
+        });
+    }
+
+    // 3. Navbar Toggle on Small Screens
+    const navbarToggle = document.getElementById('navbar-toggle');
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth < 768) {
+            navbar.classList.remove("large");
+            navbar.classList.add("small");
+        } else {
+            navbar.classList.remove("small");
+            navbar.classList.add("large");
+        }
+    });
+
+    // Run once on load to catch screen size
+    window.addEventListener("load", () => {
+        if (window.innerWidth < 768) {
+            navbar.classList.remove("large");
+            navbar.classList.add("small");
+        } else {
+            navbar.classList.remove("small");
+            navbar.classList.add("large");
+        }
+    });
 });

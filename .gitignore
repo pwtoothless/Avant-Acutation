@@ -1,0 +1,12 @@
+# Ignore operating system files
+.DS_Store
+
+# Ignore dependencies
+node_modules/
+vendor/
+
+# Ignore local environment files
+.env
+
+# Ignore AI Context
+.continue/
