@@ -1,12 +1,10 @@
 /* --- CSS Variables & Reset --- */
 :root {
-    /* Base colors built around the brand palette */
-    --bg-color: #0f0505; /* Near-black with a faint warm/red undertone */
-    --surface-color: #1a0a0a; /* Slightly lighter surface for cards */
-    --text-primary: #FFFFFF; /* Accent White */
-    --text-secondary: #d1c5c5; /* Muted white for readability */
+    --bg-color: #0f0505;
+    --surface-color: #1a0a0a;
+    --text-primary: #FFFFFF;
+    --text-secondary: #d1c5c5;
     
-    /* Brand Colors */
     --brand-red: #800000;
     --brand-yellow: #ffac0a;
     
@@ -45,7 +43,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
+    padding: 0.7rem 5%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -56,7 +54,7 @@ nav {
 }
 
 nav.scrolled {
-    padding: 1rem 5%;
+    padding: 0.7rem 5%;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
 }
 
@@ -64,7 +62,12 @@ nav.scrolled {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 1px;
+    align-items: center;
     color: var(--text-primary);
+}
+
+.logo p {
+    padding-top: 3.2%;
 }
 
 .nav-links {
@@ -72,6 +75,7 @@ nav.scrolled {
     display: flex;
     gap: 2rem;
     align-items: center;
+    display: -webkit-box;
 }
 
 .nav-links a {
@@ -84,6 +88,12 @@ nav.scrolled {
 
 .nav-links a:hover {
     color: var(--brand-yellow);
+}
+
+nav div img {
+    width: 18%;
+    height: auto;
+    float: left;
 }
 
 /* --- Buttons --- */
