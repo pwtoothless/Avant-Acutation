@@ -317,11 +317,12 @@ nav div img {
     }
 
     .nav-links {
+        display: flex; /* Overrides the desktop -webkit-box */
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(15, 5, 5, 0.95);
+        background: rgba(15, 5, 5, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         align-items: center;
@@ -329,14 +330,24 @@ nav div img {
         max-height: 0; /* Hidden by default */
         transition: max-height 0.4s ease-in-out;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        z-index: 1000; /* Forces the menu to sit on top of the page */
+        padding: 0;
     }
 
     .nav-links.active {
-        max-height: 450px; /* Slides down */
+        max-height: 500px; /* Gives enough height for all links */
     }
 
     .nav-links li {
-        margin: 1.2rem 0;
+        margin: 1.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block; /* Makes the entire row clickable */
+        padding: 0.5rem;
+        font-size: 1.1rem;
     }
 
     /* Animate Hamburger into an 'X' */
