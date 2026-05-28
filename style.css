@@ -335,11 +335,11 @@ nav div img {
     }
 
     .nav-links.active {
-        max-height: 500px; /* Gives enough height for all links */
+        max-height: 800px; /* Gives enough height for all links */
     }
 
     .nav-links li {
-        margin: 1.5rem 0;
+        margin: 0.5rem 0;
         width: 100%;
         text-align: center;
     }
