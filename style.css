@@ -73,9 +73,8 @@ nav.scrolled {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
-    display: -webkit-box;
 }
 
 .nav-links a {
